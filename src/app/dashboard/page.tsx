@@ -99,8 +99,8 @@ export default function DashboardPage() {
 
   return (
     <div className="max-w-3xl mx-auto w-full p-6 pt-12 pb-24">
-      <h1 className="text-4xl font-bold font-lora mb-2 text-[#8A9A5B]">Story Queue</h1>
-      <p className="text-zinc-500 mb-8 font-lora text-lg">Haii Nomi Sayang, disini kamu bisa ceritain semua yang kamu lakukan tanpa khawatir kamu bakal lupa, aku harap website ini bisa berguna yahhh.</p>
+      <h1 className="text-4xl font-bold font-lora mb-4 text-[#8A9A5B] text-center">Story Queue</h1>
+      <p className="text-zinc-500 mb-10 font-lora text-lg text-justify md:text-center leading-relaxed">Haii Nomi Sayang, disini kamu bisa ceritain semua yang kamu lakukan tanpa khawatir kamu bakal lupa, aku harap website ini bisa berguna yahhh.</p>
 
       <div className="flex flex-col gap-4">
         {memories.length === 0 ? (
@@ -120,34 +120,34 @@ export default function DashboardPage() {
                   y: 0 
                 }}
                 transition={{ duration: 0.4 }}
-                className={`p-5 rounded-2xl border transition-all flex flex-col md:flex-row items-start gap-4 ${
+                className={`p-5 rounded-2xl border transition-all flex flex-col items-center text-center gap-4 ${
                   memory.is_delivered 
                     ? 'bg-zinc-50 dark:bg-zinc-800/50 border-zinc-100 dark:border-zinc-800' 
                     : 'bg-white dark:bg-zinc-900 border-zinc-200 dark:border-zinc-700 shadow-sm hover:shadow-md'
                 }`}
               >
-                <div className="relative mt-1 flex-shrink-0">
+                <div className="relative mt-2 flex-shrink-0">
                   <button 
                     onClick={() => toggleDelivered(memory.id, memory.is_delivered)}
                     className="focus:outline-none relative z-20"
                     aria-label="Tandai tersampaikan"
                   >
                     {memory.is_delivered ? (
-                      <CheckCircle2 className="w-7 h-7 text-[#8A9A5B]" />
+                      <CheckCircle2 className="w-8 h-8 text-[#8A9A5B]" />
                     ) : (
-                      <Circle className="w-7 h-7 text-zinc-300 dark:text-zinc-600 hover:text-[#8A9A5B] transition-colors" />
+                      <Circle className="w-8 h-8 text-zinc-300 dark:text-zinc-600 hover:text-[#8A9A5B] transition-colors" />
                     )}
                   </button>
                   <ParticleBurst active={!!memory.showParticles} />
                 </div>
 
-                <div className="flex-1 font-lora">
+                <div className="flex flex-col items-center font-lora w-full">
                 {memory.content && (
-                  <p className={`text-xl leading-relaxed ${memory.is_delivered ? 'line-through text-zinc-500' : 'text-zinc-800 dark:text-zinc-100'}`}>
+                  <p className={`text-xl leading-relaxed text-center ${memory.is_delivered ? 'line-through text-zinc-500' : 'text-zinc-800 dark:text-zinc-100'}`}>
                     {memory.content}
                   </p>
                 )}
-                <div className="flex items-center gap-4 mt-4 text-sm font-medium text-zinc-400">
+                <div className="flex items-center justify-center gap-4 mt-5 text-sm font-medium text-zinc-400 w-full">
                   <div className="flex items-center gap-1.5">
                     <Clock className="w-4 h-4 text-zinc-300" />
                     <span>{memory.memory_date ? new Date(memory.memory_date).toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' }) : 'Hari ini'}</span>
@@ -155,14 +155,14 @@ export default function DashboardPage() {
                   {memory.image_url && (
                     <div className="flex items-center gap-1.5 text-[#8A9A5B]">
                       <ImageIcon className="w-4 h-4" />
-                      <span>Ada Foto</span>
+                      <span>memori ini ada fotonya</span>
                     </div>
                   )}
                 </div>
               </div>
 
               {memory.image_url && (
-                <div className="w-full md:w-32 h-32 flex-shrink-0 rounded-xl overflow-hidden mt-4 md:mt-0">
+                <div className="w-full max-w-sm h-48 md:h-64 flex-shrink-0 rounded-xl overflow-hidden mt-4">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img src={memory.image_url} alt="Memory" className="w-full h-full object-cover" />
                 </div>
