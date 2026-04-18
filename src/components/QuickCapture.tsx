@@ -68,7 +68,6 @@ export default function QuickCapture() {
         .from('memories')
         .insert([
           { 
-            title: text.substring(0, 50) || 'Foto Kenangan Baru', // Default title limit
             content: text,
             image_url: imageUrl,
             memory_date: new Date().toISOString().split('T')[0],

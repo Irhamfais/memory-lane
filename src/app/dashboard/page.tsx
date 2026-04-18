@@ -7,7 +7,6 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 interface Memory {
   id: string;
-  title: string;
   content: string;
   image_url: string;
   memory_date: string;
@@ -143,11 +142,8 @@ export default function DashboardPage() {
                 </div>
 
                 <div className="flex-1 font-lora">
-                <h3 className={`text-xl font-bold ${memory.is_delivered ? 'line-through text-zinc-500' : 'text-zinc-800 dark:text-zinc-100'}`}>
-                  {memory.title}
-                </h3>
                 {memory.content && (
-                  <p className="text-zinc-600 dark:text-zinc-400 mt-2 line-clamp-3 leading-relaxed text-lg">
+                  <p className={`text-xl leading-relaxed ${memory.is_delivered ? 'line-through text-zinc-500' : 'text-zinc-800 dark:text-zinc-100'}`}>
                     {memory.content}
                   </p>
                 )}
