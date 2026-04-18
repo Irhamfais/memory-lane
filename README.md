@@ -1,36 +1,49 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 💭 Memory Lane
 
-## Getting Started
+Memory Lane adalah aplikasi pencatat cerita pribadi (buku harian digital) yang eksklusif, responsif, dan mudah digunakan. Dirancang khusus dengan sentuhan personal menggunakan font *Lora* dan warna dominan *Sage Green*, memberikan sensasi klasik layaknya menulis di dalam buku kenangan premium.
 
-First, run the development server:
+## ✨ Fitur Utama
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Quick Capture:** Fitur mencatat super instan dengan antarmuka *Floating Action Button (FAB)*. Aman dari gangguan layar keyboard (Safe Area UI) di segala ukuran ponsel kesayangan Anda.
+- **Kamera Langsung (HTML5 Native):** Terintegrasi sempurna dengan perangkat *mobile*. Mengunggah foto berkesan setiap harinya menjadi satu-klik saja.
+- **Story Queue:** Daftar memori interaktif untuk membaca semua hal manis maupun keseharian secara mundur (*timeline*).
+- **Smooth Micro-Interactions:** Dirancang dengan *Framer Motion*, menawarkan detail percikan (Particle burst) dan efek pudar (*fade out*) saat mengeklik kartu memori sebagai sensasi kepuasan. 
+- **Haptic Vibrate Feedback:** Getaran *Duk-Duk!* yang khas di ponsel mengindikasikan cerita Anda sukses tersimpan di pangkalan data secara tenang.
+- **Otomasi Instan:** Perubahan langsung dimuat ke layar seketika memori tersimpan via Event Sinyal tanpa perlu me-refresh halaman!
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🛠️ Tech Stack
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Sebuah tumpukan teknologi modern namun ringan:
+- **Kerangka Web:** Next.js (App Router) + TypeScript
+- **Styling:** Tailwind CSS v4 
+- **Animasi:** Framer Motion
+- **Icon Hiasan:** Lucide React
+- **Database & Storage (BaaS):** Supabase (PostgreSQL)
+- **Deployment & Hosting:** Vercel
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🚀 Cara Menjalankan Secara Lokal
 
-## Learn More
+Pastikan komputer/laptop telah terinstal [Node.js](https://nodejs.org/) & [Git](https://git-scm.com/).
 
-To learn more about Next.js, take a look at the following resources:
+1. Klon / Unduh Repositori ini.
+2. Buka Terminal pada folder proyek, lalu instal kebutuhan kodenya:
+   ```bash
+   npm install
+   ```
+3. (Opsional) Buat berkas bernama `.env.local` di _root_ proyek dan sisipkan URL & Key Anonim Supabase Anda:
+   ```env
+   NEXT_PUBLIC_SUPABASE_URL=Isi_Dengan_URL_Anda
+   NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=Isi_Dengan_Anon_Key_Anda
+   ```
+4. Putar mesin pemrosesan dan masuk ke portal utamanya:
+   ```bash
+   npm run dev
+   ```
+5. Buka `http://localhost:3000` di *Browser* Anda!
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🔓 Catatan Database
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Aplikasi versi eksklusif perseorangan ini beroperasi dalam status perlindungan sandi berlapis *dimatikan sementara* atau biasa kita sebut **Row Level Security (RLS) ter-Bypass** pada platform Supabase—karena kerangka masuk kata sandi telah ditiadakan agar aplikasinya sigap melayani Anda kapan pun Anda membuka layarnya. Sangat disarankan hanya membagi URL Production Anda (Vercel) ke perangkat intim Anda/Orang tercinta saja! 
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+*Dibuat dengan cinta untuk mencatat cerita hari ini—dan masa depan.*
