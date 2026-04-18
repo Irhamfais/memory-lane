@@ -59,15 +59,18 @@ export default function DashboardPage() {
     };
   }, []);
 
-  const fetchMemories = async () => {
+  async function fetchMemories() {
     const { data, error } = await supabase
       .from('memories')
       .select('*')
       .order('created_at', { ascending: false });
       
+    if (error) {
+      console.error(error);
+    }
     if (data) setMemories(data);
     setIsLoading(false);
-  };
+  }
 
   const toggleDelivered = async (id: string, currentStatus: boolean) => {
     const newStatus = !currentStatus;
